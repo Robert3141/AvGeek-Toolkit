@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch App Debug",
+      "name": "Launch Windows Debug",
       "type": "cppvsdbg",
       "request": "launch",
       // change the exe name to your actual exe name
@@ -13,6 +13,12 @@
       "program": "${workspaceRoot}/src-tauri/target/debug/avgeektoolkit.exe",
       "cwd": "${workspaceRoot}",
       "preLaunchTask": "dev"
+    },
+    {
+      "name": "Launch Android Debug",
+      "request": "launch",
+      "type": "node-terminal",
+      "command": "yarn tauri android dev"
     }
   ]
 }
