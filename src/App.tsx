@@ -1,9 +1,9 @@
 import { useState } from "preact/hooks";
-import preactLogo from "./assets/preact.svg";
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 
-import { Button } from "./components/ui/button";
+import * as Sidebar from "./components/ui/sidebar";
+import * as Preact from "preact";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -14,39 +14,15 @@ function App() {
     setGreetMsg(await invoke("greet", { name }));
   }
 
+  const children: Sidebar.SidebarChildren = [(<div>"test"</div>),("testb")]
+
   //TODO update main start page
   return (
-    <main class="container">
-      <h1>Welcome to Tauri + Preact</h1>
-
-      <div class="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" class="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" class="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
+    <main>
+      <Sidebar.Sidebar children={children}/>
+      <div class="container">
+        Test
       </div>
-      <p>Click on the Tauri, Vite, and Preact logos to learn more.</p>
-
-      <form
-        class="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onInput={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <Button type="submit">Greet</Button>
-      </form>
-      <p>{greetMsg}</p>
     </main>
   );
 }
