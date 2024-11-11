@@ -14,7 +14,7 @@ function App() {
     setGreetMsg(await invoke("greet", { name }));
   }
 
-  const children: Sidebar.SidebarChildren = [(<div>"test"</div>),("testb")]
+  const children = Array(4).fill((<a>abc</a>))
 
   //TODO update main start page
   return (
