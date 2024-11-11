@@ -1,7 +1,7 @@
 [package]
 name = "avgeektoolkit"
 version = "0.1.0"
-description = "A Tauri App"
+description = "A Tauri App" # TODO update package description
 authors = ["you"]
 edition = "2021"
 

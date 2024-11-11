@@ -12,6 +12,7 @@ function App() {
     setGreetMsg(await invoke("greet", { name }));
   }
 
+  //TODO update main start page
   return (
     <main class="container">
       <h1>Welcome to Tauri + Preact</h1>
