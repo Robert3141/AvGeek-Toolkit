@@ -15,6 +15,12 @@
       "preLaunchTask": "dev"
     },
     {
+      "name": "Launch Linux Debug",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "wsl -d kali-linux -- cd src-tauri '&&' cargo build '&&' cd ../ '&&' yarn dev"
+    },
+    {
       "name": "Launch Android Debug",
       "request": "launch",
       "type": "node-terminal",
