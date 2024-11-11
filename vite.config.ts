@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
+import path from "path"
 
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
@@ -29,4 +30,11 @@ export default defineConfig(async () => ({
       ignored: ["**/src-tauri/**"],
     },
   },
+
+  /* shadcn */
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    }
+  }
 }));
